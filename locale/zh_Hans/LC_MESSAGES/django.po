@@ -1,0 +1,273 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SinoSpeak 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-26 12:48+0800\n"
+"PO-Revision-Date: 2025-03-26 12:30+0800\n"
+"Last-Translator: Your Name <your.email@example.com>\n"
+"Language-Team: Chinese <zh@li.org>\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\Core\templates\base.html:27 .\Core\templates\base.html:97
+#: .\Core\templates\base.html:173
+msgid "Home"
+msgstr "首页"
+
+#: .\Core\templates\base.html:28 .\Core\templates\base.html:98
+#: .\Core\templates\base.html:174
+msgid "Courses"
+msgstr "课程"
+
+#: .\Core\templates\base.html:29 .\Core\templates\base.html:99
+#: .\Core\templates\base.html:175 .\Core\templates\base.html:181
+msgid "Resources"
+msgstr "资源"
+
+#: .\Core\templates\base.html:30 .\Core\templates\base.html:100
+msgid "Character History"
+msgstr "汉字历史"
+
+#: .\Core\templates\base.html:31 .\Core\templates\base.html:101
+msgid "Chinese Culture"
+msgstr "中国文化"
+
+#: .\Core\templates\base.html:42 .\Core\templates\base.html:48
+#: .\Core\templates\base.html:110
+msgid "English"
+msgstr "英语"
+
+#: .\Core\templates\base.html:42 .\Core\templates\base.html:49
+#: .\Core\templates\base.html:111
+msgid "Chinese"
+msgstr "中文"
+
+#: .\Core\templates\base.html:67 .\Core\templates\base.html:128
+msgid "Profile"
+msgstr "个人资料"
+
+#: .\Core\templates\base.html:68 .\Core\templates\base.html:129
+msgid "My Courses"
+msgstr "我的课程"
+
+#: .\Core\templates\base.html:69 .\Core\templates\base.html:130
+msgid "Settings"
+msgstr "设置"
+
+#: .\Core\templates\base.html:71 .\Core\templates\base.html:131
+msgid "Logout"
+msgstr "登出"
+
+#: .\Core\templates\base.html:75 .\Core\templates\base.html:133
+msgid "Login"
+msgstr "登录"
+
+#: .\Core\templates\base.html:76 .\Core\templates\base.html:134
+msgid "Sign Up"
+msgstr "注册"
+
+#: .\Core\templates\base.html:105
+msgid "Language"
+msgstr "语言"
+
+#: .\Core\templates\base.html:154
+msgid ""
+"Innovative Chinese language learning platform designed to make learning "
+"Mandarin effective, engaging, and accessible to everyone."
+msgstr "创新的中文学习平台，旨在使学习普通话高效、有趣且人人可及。"
+
+#: .\Core\templates\base.html:171
+msgid "Quick Links"
+msgstr "快速链接"
+
+#: .\Core\templates\base.html:176
+msgid "About Us"
+msgstr "关于我们"
+
+#: .\Core\templates\base.html:177
+msgid "Contact"
+msgstr "联系我们"
+
+#: .\Core\templates\base.html:183
+msgid "Blog"
+msgstr "博客"
+
+#: .\Core\templates\base.html:184
+msgid "Learning Tips"
+msgstr "学习技巧"
+
+#: .\Core\templates\base.html:185
+msgid "Free Materials"
+msgstr "免费资料"
+
+#: .\Core\templates\base.html:186
+msgid "FAQ"
+msgstr "常见问题"
+
+#: .\Core\templates\base.html:187
+msgid "Support"
+msgstr "支持"
+
+#: .\Core\templates\base.html:191
+msgid "Contact Us"
+msgstr "联系我们"
+
+#: .\Core\templates\base.html:195
+msgid "123 Language Street, Learning City"
+msgstr "语言街123号，学习城"
+
+#: .\Core\templates\base.html:209
+msgid "All rights reserved."
+msgstr "版权所有。"
+
+#: .\Core\templates\base.html:211
+msgid "Privacy Policy"
+msgstr "隐私政策"
+
+#: .\Core\templates\base.html:212
+msgid "Terms of Service"
+msgstr "服务条款"
+
+#: .\Core\templates\base.html:213
+msgid "Cookie Policy"
+msgstr "Cookie政策"
+
+#: .\Core\templates\core\home.html:13
+#, fuzzy
+#| msgid "Sign in to SinoSpeak"
+msgid "Master Chinese with SinoSpeak"
+msgstr "登录到SinoSpeak"
+
+#: .\Core\templates\core\home.html:14
+msgid ""
+"Learn Mandarin Chinese effectively with our innovative language learning "
+"platform designed for all levels."
+msgstr "通过我们为所有级别设计的创新语言学习平台，有效地学习普通话。"
+
+#: .\Core\templates\core\home.html:16
+msgid "Get Started"
+msgstr "开始学习"
+
+#: .\Core\templates\core\home.html:17
+msgid "Learn More"
+msgstr "了解更多"
+
+#: .\Core\templates\core\home.html:32
+msgid "Why Choose SinoSpeak?"
+msgstr "为什么选择汉言？"
+
+#: .\Core\templates\core\home.html:33
+msgid ""
+"Our platform combines modern learning techniques with traditional Chinese "
+"teaching methods."
+msgstr "我们的平台将现代学习技术与传统中文教学方法相结合。"
+
+#: .\Core\templates\core\home.html:44
+msgid "Immersive Learning。"
+msgstr "沉浸式学习"
+
+#: .\Core\templates\core\home.html:45
+msgid ""
+"Practice speaking, listening, reading, and writing with our comprehensive "
+"approach to language acquisition."
+msgstr "通过我们全面的语言学习方法，练习口语、听力、阅读和写作。"
+
+#: .\Core\templates\core\home.html:55
+msgid "Personalized Curriculum"
+msgstr "个性化课程"
+
+#: .\Core\templates\core\home.html:56
+msgid ""
+"Our AI-driven system adapts to your learning style and pace, focusing on "
+"areas where you need the most practice."
+msgstr "我们的人工智能系统会根据你的学习风格和速度进行调整，重点关注你最需要练习的领域。"
+
+#: .\Core\templates\core\home.html:66
+msgid "Native Speaker Interaction"
+msgstr "与母语者互动"
+
+#: .\Core\templates\core\home.html:67
+msgid ""
+"Connect with native Chinese speakers for real conversation practice and "
+"cultural exchange."
+msgstr "与中文母语者联系，进行真实的对话练习和文化交流。"
+
+#: .\Core\templates\core\home.html:77
+msgid "What Our Students Say"
+msgstr "我们的学生怎么说"
+
+#: .\Core\templates\core\home.html:78
+msgid ""
+"Join thousands of satisfied learners on their journey to Chinese fluency."
+msgstr "加入成千上万满意的学习者，一起迈向中文流利之路。"
+
+#: .\Core\templates\core\home.html:103
+msgid ""
+"SinoSpeak transformed my approach to learning Chinese. The interactive "
+"lessons and speech recognition technology helped me improve my pronunciation "
+"dramatically."
+msgstr "汉言改变了我学习中文的方式。互动课程和语音识别技术极大地改善了我的发音。"
+
+#: .\Core\templates\core\home.html:104
+msgid "Michael Chen"
+msgstr "陈迈克"
+
+#: .\Core\templates\core\home.html:105
+msgid "Business Professional"
+msgstr "商业专业人士"
+
+#: .\Core\templates\core\home.html:128
+msgid ""
+"As a complete beginner, I was intimidated by Chinese characters. SinoSpeak "
+"made them approachable with its step-by-step writing guides and memory "
+"techniques."
+msgstr "作为一个完全的初学者，我对汉字感到害怕。汉言通过其逐步的书写指南和记忆技巧让它们变得易于接近。"
+
+#: .\Core\templates\core\home.html:130
+msgid "University Student。"
+msgstr "大学生"
+
+#: .\Core\templates\core\home.html:154
+msgid ""
+"The cultural context provided alongside language lessons makes SinoSpeak "
+"unique. I'm not just learning words, but understanding the 'why' behind "
+"expressions."
+msgstr "语言课程中提供的文化背景使汉言独一无二。我不仅仅在学习单词，还在理解表达背后的“原因”。"
+
+#: .\Core\templates\core\home.html:155
+msgid "David Wong"
+msgstr "王大卫"
+
+#: .\Core\templates\core\home.html:156
+msgid "Travel Enthusiast。"
+msgstr "旅行爱好者"
+
+#: .\Core\templates\core\home.html:165
+msgid "Ready to Start Your Chinese Journey?"
+msgstr "准备好开始你的中文之旅了吗？"
+
+#: .\Core\templates\core\home.html:166
+msgid ""
+"Join thousands of learners worldwide who are achieving their language goals "
+"with SinoSpeak."
+msgstr "加入全球数千名通过汉言实现语言目标的学习者。"
+
+#: .\Core\templates\core\home.html:167
+msgid "Sign Up Now - Free Trial"
+msgstr "立即注册 - 免费试用"
+
+#: .\accounts\templates\accounts\login.html:10
+msgid "Sign in to SinoSpeak"
+msgstr "登录到SinoSpeak"
+
+#: .\accounts\templates\accounts\login.html:13
+msgid "Access your account to continue learning"
+msgstr "访问您的账户以继续学习"
