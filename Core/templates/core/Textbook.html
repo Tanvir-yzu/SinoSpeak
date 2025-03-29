@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Textbook{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <!-- Placeholder Section -->
+    <div class="bg-white p-12 rounded-lg shadow-md flex flex-col items-center justify-center empty-state-bg min-h-[300px]">
+        <p class="text-gray-600 text-center mb-6">
+            You haven't selected a textbook, please click on the button below to select one to study
+        </p>
+        <button class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-700 transition">
+            Selecting textbooks
+        </button>
+    </div>
+</div>
+
+{% endblock %}

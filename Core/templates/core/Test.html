@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}SinoSpeak - Learn Chinese Effectively{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+        <div class="flex items-center space-x-2">
+            <h1 class="text-2xl font-bold">HSK mock exercise</h1>
+            <span class="text-gray-500 text-sm">The exam released by the teacher</span>
+        </div>
+    </div>
+
+    <!-- Score and Weaknesses Section -->
+    <div class="container mx-auto p-6">
+        <!-- Score and Weaknesses Section -->
+        <div class="flex justify-between items-center mb-6">
+            <!-- Estimated Score -->
+            <div class="flex items-center space-x-4">
+                <div class="status-circle">?</div>
+                <div>
+                    <p class="text-lg font-semibold">0</p>
+                    <p class="text-sm text-gray-500">Estimated Score (HSK1)</p>
+                </div>
+                <div class="bear-illustration w-32 h-24"></div>
+            </div>
+            <!-- Listening Weaknesses -->
+            <div class="flex items-center space-x-4">
+                <p class="text-lg font-semibold">Listening Weaknesses</p>
+                <div class="student-illustration w-32 h-24"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mock Test Papers Section -->
+    <div class="mb-8">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg font-semibold">全真模拟考练</h2>
+            <button class="bg-blue-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-blue-700 transition">
+                HSK Specialized Exercises
+            </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Test Paper 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (1)</h3>
+                    <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Unfinished</span>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-blue-100 text-blue-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-blue-200 transition">
+                    Continue the test
+                </button>
+            </div>
+            <!-- Test Paper 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (2)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (3)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (4)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 5 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (5)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 6 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (6)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 7 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (7)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 8 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (8)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 9 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (9)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 10 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (10)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 11 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (11)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+            <!-- Test Paper 12 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-lg font-semibold">HSK1 (Chinese Proficiency Test) Mock Test Paper (12)</h3>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded-full">Not tested</span>
+                        <span class="vip-badge">VIP</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500">Number of questions: 40 | Time required: 35min</p>
+                <button class="bg-gray-100 text-gray-600 font-semibold px-4 py-2 rounded-lg mt-4 w-full hover:bg-gray-200 transition">
+                    To test
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

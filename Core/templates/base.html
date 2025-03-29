@@ -1,228 +1,259 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="{% if request.LANGUAGE_CODE %}{{ request.LANGUAGE_CODE }}{% else %}en{% endif %}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}SinoSpeak{% endblock %}</title>
-    {% load static i18n %}
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Alpine.js CDN -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    {% block extra_css %}{% endblock %}
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for specific elements */
+        .vip-badge {
+            background-color: #FFF3E0;
+            color: #D97706;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 9999px;
+        }
+        /* Custom styles for the background illustration */
+        .empty-state-bg {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><g fill="none" fill-rule="evenodd"><path fill="#E5F0FD" d="M0 0h200v200H0z"/><path fill="#D1E3FA" d="M100 50c-27.614 0-50 22.386-50 50s22.386 50 50 50 50-22.386 50-50-22.386-50-50-50zm0 10c22.092 0 40 17.908 40 40s-17.908 40-40 40-40-17.908-40-40 17.908-40 40-40z"/><path fill="#D1E3FA" d="M90 95h20v10H90z"/><path fill="#D1E3FA" d="M30 150c-5 0-10 5-10 10s5 10 10 10 10-5 10-10-5-10-10-10zm140 0c-5 0-10 5-10 10s5 10 10 10 10-5 10-10-5-10-10-10zm-70-20c-5 0-10 5-10 10s5 10 10 10 10-5 10-10-5-10-10-10z"/><path fill="#D1E3FA" d="M50 170l10-20 10 20zM130 170l10-20 10 20z"/></g></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200px 200px;
+        }
+        /* Custom styles for the icons */
+        .icon-bg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+        }
+        .status-circle {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #E5E7EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #F9FAFB;
+        }
+        .illustration-bg {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100"><g fill="none" fill-rule="evenodd"><path fill="#E5F0FD" d="M0 0h200v100H0z"/><path fill="#D1E3FA" d="M50 70c-10 0-20 5-20 10s10 10 20 10 20-5 20-10-10-10-20-10zm100 0c-10 0-20 5-20 10s10 10 20 10 20-5 20-10-10-10-20-10z"/><path fill="#D1E3FA" d="M70 80l10-20 10 20zM130 80l10-20 10 20z"/></g></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200px 100px;
+        }
+        .bear-illustration {
+            background-image: url{% static 'images/test_score.50a8d4db.png' %};
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 150px 100px;
+        }
+        .student-illustration {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 150 100"><g fill="none" fill-rule="evenodd"><path fill="#E5F0FD" d="M0 0h150v100H0z"/><path fill="#FCD34D" d="M75 20c-10 0-20 5-20 10s10 10 20 10 20-5 20-10-10-10-20-10z"/><path fill="#FCD34D" d="M65 30l10-20 10 20z"/><path fill="#86EFAC" d="M110 50h30v10h-30z"/><path fill="#86EFAC" d="M110 60h30v10h-30z"/><path fill="#86EFAC" d="M110 70h30v10h-30z"/><path fill="#D1E3FA" d="M30 40c0-5-5-10-10-10s-10 5-10 10 5 10 10 10 10-5 10-10z"/><path fill="#D1E3FA" d="M120 30c0-5-5-10-10-10s-10 5-10 10 5 10 10 10 10-5 10-10z"/></g></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 150px 100px;
+        }
+    </style>
 </head>
-<body class="flex flex-col min-h-screen bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-30" x-data="{ open: false }">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4" x-data="{ isOpen: false, activeTab: 'home' }">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Left Side: Logo and Navigation -->
+            <div class="flex items-center gap-6">
                 <!-- Logo -->
-                <a href="{% url 'home' %}" class="flex items-center">
-                    <span class="text-2xl font-bold text-indigo-600">SinoSpeak</span>
-                </a>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="{% url 'home' %}" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200">{% trans "Home" %}</a>
-                    <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200">{% trans "Courses" %}</a>
-                    <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200">{% trans "Resources" %}</a>
-                    <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200">{% trans "Character History" %}</a>
-                    <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200">{% trans "Chinese Culture" %}</a>
+                <div class="flex items-center space-x-2">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo" class="h-8 w-8">
+                    <span class="text-xl font-bold">SinoSpeak</span>
                 </div>
 
-                <!-- Desktop Language Switcher and Profile -->
-                <div class="hidden md:flex items-center space-x-4" x-data="{ open: false }">
-                    <!-- Language Dropdown -->
-                    <div class="relative">
-                        <form action="{% url 'set_language' %}" method="post">
-                            {% csrf_token %}
-                            <input type="hidden" name="next" value="{{ request.path }}">
-                            <button @click="open = !open" type="button" class="flex items-center text-gray-700 hover:text-indigo-600 font-medium focus:outline-none" aria-label="Switch language">
-                                <span>{% if request.LANGUAGE_CODE == 'en' %}{% trans "English" %}{% else %}{% trans "Chinese" %}{% endif %}</span>
-                                <svg class="h-5 w-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </button>
-                            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-                                <button type="submit" name="language" value="en" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">{% trans "English" %}</button>
-                                <button type="submit" name="language" value="zh-hans" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">{% trans "Chinese" %} (中文)</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Profile Dropdown -->
-                    {% if user.is_authenticated %}
-                        <div class="relative" x-data="{ open: false }">
-                            <button @click="open = !open" class="flex items-center text-gray-700 hover:text-indigo-600 focus:outline-none" aria-label="Toggle profile menu">
-                                {% if user.profile.profile_image %}
-                                    <img src="{{ user.profile.profile_image.url }}" alt="{{ user.username }}" class="h-12 w-12 rounded-full object-cover mr-2 border border-gray-200">
-                                {% else %}
-                                    <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-medium">
-                                        {{ user.username|slice:":1"|upper }}
-                                    </div>
-                                {% endif %}
-                            </button>
-                            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-                                <a href="{% url 'accounts:profile' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">{% trans "Profile" %}</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">{% trans "My Courses" %}</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">{% trans "Settings" %}</a>
-                                <div class="border-t border-gray-100"></div>
-                                <a href="{% url 'accounts:logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">{% trans "Logout" %}</a>
-                            </div>
-                        </div>
-                    {% else %}
-                        <a href="{% url 'accounts:login' %}" class="text-gray-700 hover:text-indigo-600 font-medium">{% trans "Login" %}</a>
-                        <a href="{% url 'accounts:register' %}" class="bg-indigo-600 text-white hover:bg-indigo-700 px-4 py-2 rounded-lg font-medium">{% trans "Sign Up" %}</a>
-                    {% endif %}
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button @click="open = !open" class="text-gray-700 hover:text-indigo-600 focus:outline-none" aria-label="Toggle navigation menu">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show="!open">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-show="open">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="{% url 'home' %}" @click="activeTab = 'home'" :class="{ 'bg-blue-50 text-blue-500': activeTab === 'home' }" class="font-medium px-4 py-2 rounded-full transition-all duration-200 hover:bg-blue-50 hover:text-blue-500">Home</a>
+                    <a href="{% url 'test' %}" @click="activeTab = 'test'" :class="{ 'bg-blue-50 text-blue-500': activeTab === 'test' }" class="font-medium px-4 py-2 rounded-full transition-all duration-200 hover:bg-blue-50 hover:text-blue-500">Test</a>
+                    <a href="{% url 'textbook' %}" @click="activeTab = 'textbook'" :class="{ 'bg-blue-50 text-blue-500': activeTab === 'textbook' }" class="font-medium px-4 py-2 rounded-full transition-all duration-200 hover:bg-blue-50 hover:text-blue-500">Textbook</a>
+                    <a href="{% url 'me' %}" @click="activeTab = 'me'" :class="{ 'bg-blue-50 text-blue-500': activeTab === 'me' }" class="font-medium px-4 py-2 rounded-full transition-all duration-200 hover:bg-blue-50 hover:text-blue-500">Me</a>
                 </div>
             </div>
 
-            <!-- Mobile Navigation -->
-            <div class="md:hidden" x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4">
-                <div class="mt-4 pb-4 bg-white shadow-lg rounded-lg">
-                    <div class="flex flex-col space-y-3 px-4">
-                        <a href="{% url 'home' %}" class="text-gray-700 hover:text-indigo-600 font-medium">{% trans "Home" %}</a>
-                        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">{% trans "Courses" %}</a>
-                        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">{% trans "Resources" %}</a>
-                        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">{% trans "Character History" %}</a>
-                        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">{% trans "Chinese Culture" %}</a>
+            <!-- Hamburger Menu (Mobile) -->
+            <div class="md:hidden">
+                <button @click="isOpen = !isOpen" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
 
-                        <!-- Mobile Language Switcher -->
-                        <div class="border-t border-gray-200 pt-3">
-                            <p class="text-sm text-gray-500 mb-2">{% trans "Language" %} / 语言</p>
-                            <form action="{% url 'set_language' %}" method="post">
-                                {% csrf_token %}
-                                <input type="hidden" name="next" value="{{ request.path }}">
-                                <div class="flex space-x-2">
-                                    <button type="submit" name="language" value="en" class="px-3 py-1 text-sm rounded border border-gray-300 hover:bg-indigo-50 focus:outline-none {% if request.LANGUAGE_CODE == 'en' %}bg-indigo-100 text-indigo-700{% else %}bg-white text-gray-700{% endif %}">{% trans "English" %}</button>
-                                    <button type="submit" name="language" value="zh-hans" class="px-3 py-1 text-sm rounded border border-gray-300 hover:bg-indigo-50 focus:outline-none {% if request.LANGUAGE_CODE == 'zh-hans' %}bg-indigo-100 text-indigo-700{% else %}bg-white text-gray-700{% endif %}">{% trans "Chinese" %}</button>
-                                </div>
-                            </form>
-                        </div>
+            <!-- Right Side: Dropdowns and Icons -->
+            <div class="hidden md:flex items-center space-x-6">
+                <!-- Level Dropdown -->
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" class="text-gray-600 hover:text-blue-500 flex items-center justify-end space-x-1">
+                        <span>Level: HSK1</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div x-show="open" @click.away="open = false" class="absolute mt-2 w-32 bg-white shadow-lg rounded-md z-50">
+                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">HSK1</a>
+                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">HSK2</a>
+                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">HSK3</a>
+                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">HSK4</a>
+                    </div>
+                </div>
 
-                        <!-- Mobile Profile/Auth Links -->
-                        <div class="border-t border-gray-200 pt-3">
-                            {% if user.is_authenticated %}
-                                <div class="flex items-center mb-3">
-                                    {% if user.profile.profile_image %}
-                                        <img src="{{ user.profile.profile_image.url }}" alt="{{ user.username }}" class="h-10 w-10 rounded-full object-cover mr-3 border border-gray-200">
-                                    {% else %}
-                                        <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-medium">
-                                            {{ user.username|slice:":1"|upper }}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                                <a href="{% url 'accounts:profile' %}" class="block text-gray-700 hover:text-indigo-600 font-medium">{% trans "Profile" %}</a>
-                                <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium mt-2">{% trans "My Courses" %}</a>
-                                <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium mt-2">{% trans "Settings" %}</a>
-                                <a href="{% url 'accounts:logout' %}" class="block text-gray-700 hover:text-indigo-600 font-medium mt-2">{% trans "Logout" %}</a>
+                <!-- Language Dropdown -->
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" class="text-gray-600 hover:text-blue-500 flex items-center space-x-1">
+                        <span>English</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div x-show="open" @click.away="open = false" class="absolute mt-2 w-32 bg-white shadow-lg rounded-md z-50">
+                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">English</a>
+                        <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">Chinese</a>
+                    </div>
+                </div>
+
+                <!-- Icons -->
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-mobile-alt"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-bolt"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-bell"></i></a>
+                    
+                    <!-- Desktop User Avatar -->
+                    <div x-data="{ profileOpen: false }" class="relative flex items-center space-x-2">
+                        <div @click="profileOpen = !profileOpen" class="cursor-pointer">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.profile.avatar %}
+                                    <img src="{{ request.user.profile.avatar.url }}" alt="{{ request.user.username }}'s Avatar" class="h-8 w-8 rounded-full object-cover">
+                                {% else %}
+                                    <img src="{% static 'images/default.png' %}" alt="Default Avatar" class="h-8 w-8 rounded-full object-cover">
+                                {% endif %}
                             {% else %}
-                                <a href="{% url 'accounts:login' %}" class="block text-gray-700 hover:text-indigo-600 font-medium">{% trans "Login" %}</a>
-                                <a href="{% url 'accounts:register' %}" class="block bg-indigo-600 text-white hover:bg-indigo-700 px-4 py-2 rounded-lg font-medium mt-2 text-center">{% trans "Sign Up" %}</a>
+                                <img src="{% static 'images/default.png' %}" alt="Guest Avatar" class="h-8 w-8 rounded-full object-cover">
+                            {% endif %}
+                        </div>
+                        <span class="text-gray-600">
+                            {% if request.user.is_authenticated %}
+                                {{ request.user.username }}
+                            {% else %}
+                                Guest
+                            {% endif %}
+                        </span>
+                        
+                        <!-- Profile Dropdown -->
+                        <div x-show="profileOpen" 
+                             @click.away="profileOpen = false" 
+                             class="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg z-50">
+                            {% if request.user.is_authenticated %}
+                                <a  class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">
+                                    <i class="fas fa-user mr-2"></i>Profile
+                                </a>
+                                <a  class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">
+                                    <i class="fas fa-cog mr-2"></i>Settings
+                                </a>
+                                <a href="{% url 'accounts:logout' %}" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">
+                                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                                </a>
+                            {% else %}
+                                <a href="{% url 'accounts:login' %}" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">
+                                    <i class="fas fa-sign-in-alt mr-2"></i>Login
+                                </a>
+                                <a href="{% url 'accounts:register' %}" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">
+                                    <i class="fas fa-user-plus mr-2"></i>Register
+                                </a>
                             {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow">
-        {% block content %}{% endblock %}
-    </main>
+            <!-- Mobile Menu -->
+            <div x-show="isOpen" @click.away="isOpen = false" class="md:hidden absolute top-16 left-0 w-full bg-white shadow-lg z-50">
+                <div class="flex flex-col space-y-4 p-4">
+                    <a href="{% url 'home' %}" @click="activeTab = 'home'" :class="{ 'bg-blue-50 text-blue-500': activeTab === 'home' }" class="font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:bg-blue-50 hover:text-blue-500">Home</a>
+                    <a href="{% url 'test' %}" @click="activeTab = 'test'" :class="{ 'bg-blue-50 text-blue-500': activeTab === 'test' }" class="font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:bg-blue-50 hover:text-blue-500">Test</a>
+                    <a href="{% url 'textbook' %}" @click="activeTab = 'textbook'" :class="{ 'bg-blue-50 text-blue-500': activeTab === 'textbook' }" class="font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:bg-blue-50 hover:text-blue-500">Textbook</a>
+                    <a href="{% url 'me' %}" @click="activeTab = 'me'" :class="{ 'bg-blue-50 text-blue-500': activeTab === 'me' }" class="font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:bg-blue-50 hover:text-blue-500">Me</a>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-10">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">SinoSpeak</h3>
-                    <p class="text-gray-300 mb-4">{% trans "Innovative Chinese language learning platform designed to make learning Mandarin effective, engaging, and accessible to everyone." %}</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                    <!-- Level Dropdown (Mobile) -->
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" class="text-gray-600 hover:text-blue-500 flex items-center space-x-1">
+                            <span>Level: HSK1</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div x-show="open" class="mt-2 w-full bg-white shadow-lg rounded-md">
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">HSK1</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">HSK2</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">HSK3</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">HSK4</a>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">{% trans "Quick Links" %}</h3>
-                    <ul class="space-y-2">
-                        <li><a href="{% url 'home' %}" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Home" %}</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Courses" %}</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Resources" %}</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "About Us" %}</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Contact" %}</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">{% trans "Resources" %}</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Blog" %}</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Learning Tips" %}</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Free Materials" %}</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "FAQ" %}</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Support" %}</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">{% trans "Contact Us" %}</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-indigo-400"></i>
-                            <span>{% trans "123 Language Street, Learning City" %}</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-3 text-indigo-400"></i>
-                            <a href="mailto:info@sinospeak.com" class="hover:text-white transition-colors duration-200">info@sinospeak.com</a>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone mt-1 mr-3 text-indigo-400"></i>
-                            <a href="tel:+15551234567" class="hover:text-white transition-colors duration-200">+1 (555) 123-4567</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-300">© <span id="current-year"></span> SinoSpeak. {% trans "All rights reserved." %}</p>
-                <div class="mt-4 md:mt-0 space-x-6">
-                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Privacy Policy" %}</a>
-                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Terms of Service" %}</a>
-                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">{% trans "Cookie Policy" %}</a>
+
+                    <!-- Language Dropdown (Mobile) -->
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" class="text-gray-600 hover:text-blue-500 flex items-center space-x-1">
+                            <span>English</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div x-show="open" class="mt-2 w-full bg-white shadow-lg rounded-md">
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">English</a>
+                            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-500">Chinese</a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile User Menu -->
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-mobile-alt"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-bolt"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200"><i class="fas fa-bell"></i></a>
+                        <div x-data="{ profileOpen: false }" class="relative flex items-center space-x-2">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.profile.avatar %}
+                                    <img src="{{ request.user.profile.avatar.url }}" alt="{{ request.user.username }}'s Avatar" class="h-8 w-8 rounded-full object-cover">
+                                {% else %}
+                                    <img src="{% static 'images/default-avatar.png' %}" alt="Default Avatar" class="h-8 w-8 rounded-full object-cover">
+                                {% endif %}
+                                <span class="text-gray-600">{{ request.user.username }}</span>
+                                <div class="flex flex-col space-y-2">
+                                    <a  class="text-gray-600 hover:text-blue-500">Profile</a>
+                                    <a  class="text-gray-600 hover:text-blue-500">Settings</a>
+                                    <a href="{% url 'accounts:logout' %}" class="text-gray-600 hover:text-blue-500">Logout</a>
+                                </div>
+                            {% else %}
+                                <img src="{% static 'images/default-avatar.png' %}" alt="Guest Avatar" class="h-8 w-8 rounded-full object-cover">
+                                <span class="text-gray-600">Guest</span>
+                                <div class="flex flex-col space-y-2">
+                                    <a href="{% url 'accounts:login' %}" class="text-gray-600 hover:text-blue-500">Login</a>
+                                    <a href="{% url 'accounts:register' %}" class="text-gray-600 hover:text-blue-500">Register</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </nav>
 
-    <!-- Scripts -->
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-    {% block extra_js %}{% endblock %}
+    <!-- Main Content -->
+    <main class="container mx-auto my-8 px-4 md:px-8 lg:px-44 xl:px-44 min-h-[calc(100vh-150px)]">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-4 text-center">
+        <p>&copy; 2025 Learn Chinese. All rights reserved.</p>
+    </footer>
 </body>
 </html>

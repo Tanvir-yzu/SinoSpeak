@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Textbook{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-6">
+    <!-- Proficiency Level Section -->
+    <div class="mb-8">
+        <h1 class="text-2xl font-bold mb-4 text-green-600">HSK MY HSK proficiency level</h1>
+        <div class="bg-white p-12 rounded-lg shadow-md flex flex-col items-center justify-center empty-state-bg min-h-[300px]">
+            <p class="text-gray-600 text-center mb-6">
+                您还没有学习记录，请解锁新技能开始学习吧。
+            </p>
+            <button class="bg-blue-100 text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-200 transition">
+                Go to practice
+            </button>
+        </div>
+    </div>
+
+    <!-- My Weaknesses Section -->
+    <div class="mb-8">
+        <h2 class="text-lg font-semibold mb-4">My Weaknesses</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- My Vocabulary Weaknesses -->
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center empty-state-bg min-h-[200px]">
+                <p class="text-gray-600 text-center">暂无数据</p>
+            </div>
+            <!-- My Grammar Weaknesses -->
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center empty-state-bg min-h-[200px]">
+                <p class="text-gray-600 text-center">暂无数据</p>
+            </div>
+            <!-- My Pronunciation Weaknesses -->
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center empty-state-bg min-h-[200px]">
+                <p class="text-gray-600 text-center">暂无数据</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Section -->
+    <div>
+        <h2 class="text-lg font-semibold mb-4">Report</h2>
+        <div class="bg-white p-12 rounded-lg shadow-md flex flex-col items-center justify-center empty-state-bg min-h-[300px]">
+            <p class="text-gray-600 text-center">您还没有学习记录</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

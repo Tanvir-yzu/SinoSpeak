@@ -11,10 +11,7 @@ urlpatterns = [
     path('', include('Core.urls')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('i18n/', include('django.conf.urls.i18n')),  # Language switcher
-]
-
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 admin.site.site_header = "SinoSpeak Admin"
