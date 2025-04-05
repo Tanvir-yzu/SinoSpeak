@@ -52,6 +52,9 @@ SinoSpeak is a Django-based project designed to provide a robust platform for la
    ```bash
    {% trans "版权所有。" %}
    ```
+   ```bash
+   black list
+   ```
 ## Usage
 
 - Access the application at `http://127.0.0.1:8000/`.
